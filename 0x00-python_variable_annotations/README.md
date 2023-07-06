@@ -81,3 +81,27 @@ pi is a <class 'float'> with a value of 3.14
 i_understand_annotations is a <class 'bool'> with a value of True
 school is a <class 'str'> with a value of Holberton
 ```
+
+### 5. Complex types - list of floats
+Files:  [5-sum_list.py](5-sum_list.py), [5-main.py](5-main.py)
+
+Write a type-annotated function  `sum_list`  which takes a list  `input_list`  of floats as argument and returns their sum as a float.
+
+```
+bob@dylan:~$ ./5-main.py
+True
+{'input_list': typing.List[float], 'return': <class 'float'>}
+sum_list(floats) returns 6.470000000000001 which is a <class 'float'>
+```
+
+### 6. Complex types - mixed list
+Files:  [6-sum_mixed_list.py](6-sum_mixed_list.py), [6-main.py](6-main.py)
+
+Write a type-annotated function  `sum_mixed_list`  which takes a list  `mxd_lst`  of integers and floats and returns their sum as a float.
+
+```
+bob@dylan:~$ ./6-main.py
+{'mxd_lst': typing.List[typing.Union[int, float]], 'return': <class 'float'>}
+True
+sum_mixed_list(mixed) returns 679.13 which is a <class 'float'>
+```

@@ -1,1 +1,83 @@
 # 0x00. Python - Variable Annotations
+`Python` -- `Back-end`
+## Requirements
+
+### General
+-   Allowed editors:  `vi`,  `vim`,  `emacs`
+-   All your files will be interpreted/compiled on Ubuntu 18.04 LTS using  `python3`  (version 3.7)
+-   All your files should end with a new line
+-   The first line of all your files should be exactly  `#!/usr/bin/env python3`
+-   A  `README.md`  file, at the root of the folder of the project, is mandatory
+-   Your code should use the  `pycodestyle`  style (version 2.5.)
+-   All your files must be executable
+-   The length of your files will be tested using  `wc`
+-   All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
+-   All your classes should have a documentation (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
+-   All your functions (inside and outside a class) should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'`  and  `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+-   A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
+
+## Tasks
+
+### 0. Basic annotations - add
+Files:  [0-add.py](0-add.py), [0-main.py](0-main.py)
+
+Write a type-annotated function  `add`  that takes a float  `a`  and a float  `b`  as arguments and returns their sum as a float.
+
+```
+bob@dylan:~$ ./0-main.py
+True
+{'a':  <class 'float'>, 'b': <class 'float'>, 'return': <class 'float'>}
+```
+
+### 1. Basic annotations - concat
+Files:  [1-concat.py](1-concat.py), [1-main.py](1-main.py)
+
+Write a type-annotated function  `concat`  that takes a string  `str1`  and a string  `str2`  as arguments and returns a concatenated string
+
+```
+bob@dylan:~$ ./1-main.py
+True
+{'str1': <class 'str'>, 'str2': <class 'str'>, 'return': <class 'str'>}
+```
+
+### 2. Basic annotations - floor
+Files:  [2-floor.py](2-floor.py), [2-main.py](2-main.py)
+
+Write a type-annotated function  `floor`  which takes a float  `n`  as argument and returns the floor of the float.
+
+```
+bob@dylan:~$ ./2-main.py
+True
+{'n': <class 'float'>, 'return': <class 'int'>}
+floor(3.14) returns 3, which is a <class 'int'>
+```
+
+### 3. Basic annotations - to string
+File:  [3-to_str.py](3-to_str.py), [3-main.py](3-main.py)
+
+Write a type-annotated function  `to_str`  that takes a float  `n`  as argument and returns the string representation of the float.
+
+```
+bob@dylan:~$ ./3-main.py
+True
+{'n': <class 'float'>, 'return': <class 'str'>}
+to_str(3.14) returns 3.14, which is a <class 'str'>
+```
+
+### 4. Define variables
+Files:  [4-define_variables.py](4-define_variables.py), [4-main.py](4-main.py)
+
+Define and annotate the following variables with the specified values:
+
+-   `a`, an integer with a value of 1
+-   `pi`, a float with a value of 3.14
+-   `i_understand_annotations`, a boolean with a value of True
+-   `school`, a string with a value of “Holberton”
+
+```
+bob@dylan:~$ ./4-main.py
+a is a <class 'int'> with a value of 1
+pi is a <class 'float'> with a value of 3.14
+i_understand_annotations is a <class 'bool'> with a value of True
+school is a <class 'str'> with a value of Holberton
+```

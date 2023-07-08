@@ -105,3 +105,43 @@ bob@dylan:~$ ./6-main.py
 True
 sum_mixed_list(mixed) returns 679.13 which is a <class 'float'>
 ```
+
+### 7. Complex types - string and int/float to tuple
+Files:  [7-to_kv.py](7-to_kv.py) , [7-main.py](7-main.py)
+
+Write a type-annotated function  `to_kv`  that takes a string  `k`  and an int OR float  `v`  as arguments and returns a tuple. The first element of the tuple is the string  `k`. The second element is the square of the int/float  `v`  and should be annotated as a float.
+
+```
+bob@dylan:~$ ./7-main.py
+{'k': <class 'str'>, 'v': typing.Union[int, float], 'return': typing.Tuple[str, float]}
+('eggs', 9)
+('school', 0.0004)
+```
+
+### 8. Complex types - functions
+File:  [8-make_multiplier.py](8-make_multiplier.py) , [8-main.py](8-main.py)
+
+Write a type-annotated function  `make_multiplier`  that takes a float  `multiplier`  as argument and returns a function that multiplies a float by  `multiplier`.
+
+```
+bob@dylan:~$ ./8-main.py
+{'multiplier': <class 'float'>, 'return': typing.Callable[[float], float]}
+4.928400000000001
+```
+
+### 9. Let's duck type an iterable object
+File:  [9-element_length.py](9-element_length.py), [9-main.py](9-main.py)
+
+Annotate the below function’s parameters and return values with the appropriate types
+
+```
+def element_length(lst):
+    return [(i, len(i)) for i in lst]
+```
+
+```
+bob@dylan:~$ ./9-main.py 
+{'lst': typing.Iterable[typing.Sequence], 'return': typing.List[typing.Tuple[typing.Sequence, int]]}
+```
+
+> Written with [StackEdit](https://stackedit.io/).

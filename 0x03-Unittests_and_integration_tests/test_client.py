@@ -3,13 +3,13 @@
 Tests for client.py
 """
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, PropertyMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
-    """Parameterizxe and patch as decorators"""
+    """Parameterize and patch as decorators"""
 
     @parameterized.expand([
         ("google", {"login": "google"}),
@@ -24,3 +24,17 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(google_client.org(), expected_res)
         mock_function.assert_called_once_with("https://api.github.com/orgs/{}"
                                               .format(org))
+
+    def test_public_repos_url(self):
+        """test for GithubOrgClient._public_repos_url"""
+        with patch(
+                "client.GithubOrgClient.org",
+                new_callable=PropertyMock
+                ) as mock_property:
+            mock_property.return_value = {
+                    "repos_url": "https://api.github.com/users/google/repos"
+                    }
+            self.assertEqual(
+                    GithubOrgClient("google")._public_repos_url,
+                    "https://api.github.com/users/google/repos"
+                    )

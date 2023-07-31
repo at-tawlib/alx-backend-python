@@ -4,7 +4,7 @@ test for utils.py functions
 """
 import unittest
 from utils import access_nested_map as anp
-from utils import get_json
+from utils import get_json, memoize
 from parameterized import parameterized, parameterized_class
 from unittest.mock import Mock, patch
 
@@ -45,3 +45,30 @@ class TestGetJson(unittest.TestCase):
         with patch('requests.get', return_value=mock_res):
             response = get_json(url)
             self.assertEqual(response, expected_result)
+
+
+class TestMemoize(unittest.TestCase):
+    """Parameterize and patch"""
+
+    def test_memoize(self):
+        """test for utils.memoize"""
+        class TestClass:
+
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        test_obj = TestClass()
+
+        with patch.object(test_obj, 'a_method') as mock_method:
+            mock_method.return_value = 42
+
+            first_result = test_obj.a_property
+            second_result = test_obj.a_property
+
+            self.assertEqual(first_result, 42)
+            self.assertEqual(second_result, 42)
+            mock_method.assert_called_once()
